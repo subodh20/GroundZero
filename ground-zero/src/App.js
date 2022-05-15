@@ -2,7 +2,6 @@ import LoginPage from "./components/login/LoginPage";
 import {Navigate, Route, Routes} from "react-router-dom";
 import SignUpPage from "./components/login/SignUpPage";
 import HomePage from "./components/dashboard/HomePage";
-import Login from "./components/login/LoginPage";
 
 function App() {
     const loggedIn = true;
