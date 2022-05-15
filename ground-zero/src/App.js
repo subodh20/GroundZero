@@ -2,20 +2,25 @@ import LoginPage from "./components/login/LoginPage";
 import {Navigate, Route, Routes} from "react-router-dom";
 import SignUpPage from "./components/login/SignUpPage";
 import HomePage from "./components/dashboard/HomePage";
+import {useState} from "react";
 
 function App() {
-    const loggedIn = false;
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const handleIsLoggedIn = isLoggedIn => {
+        setIsLoggedIn(isLoggedIn);
+    }
     return (
         <div className="App">
-                <Routes>
-                    {loggedIn && <Route path="/login" element={<Navigate replace to ="/" />}></Route>}
-                    {loggedIn && <Route path="/sign-up" element={<Navigate replace to ="/" />}></Route>}
-                    <Route path="/login" element={<LoginPage />}></Route>
-                    <Route path="/sign-up" element={<SignUpPage />}></Route>
-                    {loggedIn && <Route path="/" exact element={<HomePage />}></Route>}
-                    {!loggedIn && <Route path="/"  element={<Navigate replace to ="/login" />}></Route>}
-                    <Route path="/*" element={<Navigate replace to ="/" />} />
-                </Routes>
+            <Routes>
+                {isLoggedIn && <Route path="/login" element={<Navigate replace to="/"/>}></Route>}
+                {isLoggedIn && <Route path="/sign-up" element={<Navigate replace to="/"/>}></Route>}
+                <Route path="/login" element={<LoginPage isLoggedIn={handleIsLoggedIn}/>}></Route>
+                <Route path="/sign-up" element={<SignUpPage/>}></Route>
+                {isLoggedIn && <Route path="/" exact element={<HomePage/>}></Route>}
+                {!isLoggedIn && <Route path="/" element={<Navigate replace to="/login"/>}></Route>}
+                <Route path="/*" element={<Navigate replace to="/"/>}/>
+            </Routes>
         </div>
     );
 }

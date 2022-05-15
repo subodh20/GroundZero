@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import {useState} from "react";
 
-function Login() {
+function Login({isLoggedIn}) {
 
     const userAdmin = {
         username:"admin",
@@ -14,6 +14,7 @@ function Login() {
         e.preventDefault();
         if(userAdmin.username === loginDetails.username && userAdmin.password === loginDetails.password){
             console.log("authenticated");
+            isLoggedIn(true);
         }else{
             console.log("username or password is incorrect");
         }
