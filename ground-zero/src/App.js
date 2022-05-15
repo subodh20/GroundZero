@@ -4,7 +4,7 @@ import SignUpPage from "./components/login/SignUpPage";
 import HomePage from "./components/dashboard/HomePage";
 
 function App() {
-    const loggedIn = true;
+    const loggedIn = false;
     return (
         <div className="App">
                 <Routes>
