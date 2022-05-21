@@ -31,11 +31,11 @@ function Login({ isLoggedIn }) {
   };
 
   return (
-    <div>
-      <p>Welcome to Login Page</p>
-      <form onSubmit={handleLogin}>
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
+    <div className="container w-50">
+      <h1 className="text-center text-primary">Welcome to Login Page</h1>
+      <form onSubmit={handleLogin} className="m-2">
+        <div className="form-group text-secondary">
+          <label htmlFor="username ">Username</label>
           <input
             id="username"
             type="text"
@@ -45,8 +45,8 @@ function Login({ isLoggedIn }) {
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
+        <div className="form-group text-secondary">
+          <label htmlFor="password ">Password</label>
           <input
             id="password"
             type="text"
@@ -56,10 +56,14 @@ function Login({ isLoggedIn }) {
             onChange={handleChange}
           />
         </div>
-        <button className="btn btn-primary">Login</button>
+        <div>
+          <button className="btn btn-primary m-2">Login</button>
+          <span className="text-secondary">Don't have an account? </span>
+          <Link to="/sign-up" className="text-decoration-none text-secondary">
+            create new account?
+          </Link>
+        </div>
       </form>
-      <span>Don't have an account? </span>
-      <Link to="/sign-up">create new account?</Link>
     </div>
   );
 }
